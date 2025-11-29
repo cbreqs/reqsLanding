@@ -1,0 +1,444 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+:root {
+  --bg-dark: #0c0f1a;
+  --text-dark: #a8cbe0;
+  --hover-dark: #d0e6f6;
+  --bg-light: #a8cbe0;
+  --text-light: #0c0f1a;
+  --hover-light: #000000;
+  --container-bg-dark: #1a1e2e;
+  --container-bg-light: #d0e6f6;
+  --border-dark: #a8cbe0;
+  --border-light: #0c0f1a;
+  --accent-light: #d0e6f6;
+  --accent-dark: #2b3a42;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5rem;
+}
+
+html.light-mode body {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-bar, .bottom-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bg-dark);
+  z-index: 1000;
+}
+
+html.light-mode .bottom-bar {
+  background-color: var(--bg-light);
+}
+
+.bottom-bar a:nth-child(1) { margin-left: 1rem; }
+.bottom-bar a:nth-child(2) { margin: 0 auto; }
+.bottom-bar a:nth-child(3) { margin-right: 1rem; }
+
+.container {
+  max-width: 900px;
+  margin: 1.5rem auto;
+  background-color: var(--container-bg-dark);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-dark);
+dev
+  scroll-margin-top: 80px;
+
+  color: var(--text-dark);
+}
+
+html.light-mode .container {
+  background-color: var(--container-bg-light);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-light);
+  color: var(--text-light);
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent-light);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+html.light-mode a {
+  color: var(--accent-dark);
+}
+
+a[href$="about.html"].active,
+a[href$="projects.html"].active,
+a[href$="index.html"].active,
+html.light-mode a[href$="about.html"].active,
+html.light-mode a[href$="projects.html"].active,
+html.light-mode a[href$="index.html"].active {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-bottom: 8rem;
+  }
+
+  .bottom-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  a {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+.home-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.center-quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.home-container.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+html.light-mode .home-container.container {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.homepage-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 400;
+  padding: 1rem;
+  display: block;
+  color: var(--text-dark);
+}
+
+html.light-mode .homepage-quote {
+  color: var(--text-light);
+}
+
+.card-gallery {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.card-image {
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  border: 1px solid var(--border-dark);
+}
+
+html.light-mode .card-image {
+  border: 1px solid var(--border-light);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.caption {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: var(--text-dark);
+}
+
+html.light-mode .caption {
+  color: var(--text-light);
+}
+
+/* === Modal Styles === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content img {
+  max-width: 90vw;
+  max-height: 80vh;
+  margin: auto;
+  border: 4px solid white;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.inline-link {
+  color: inherit;
+  text-decoration: none;
+  border: none;
+}
+
+/* === Milestone Layout and Image Styling === */
+.container.timeline {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.milestone {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.milestone.reverse {
+  flex-direction: row-reverse;
+}
+
+.milestone img {
+  flex: 0 1 48%;
+  max-width: 100%;
+  max-height: 300px;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+html.light-mode .milestone img {
+  border: 2px solid var(--border-light);
+  background-color: var(--container-bg-light);
+}
+
+.milestone-content {
+  flex: 1 1 48%;
+  min-width: 300px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+
+  .milestone {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .milestone img {
+    max-width: 80%;
+  }
+
+  .milestone-content {
+    text-align: left;
+    width: 100%;
+  }
+
+  .milestone {
+    position: relative;
+  }
+}
+/* === Bottom & Top Bar Button Styles === */
+.bottom-bar a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  border: 1px solid var(--text-dark);
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+  font-family: 'Red Hat Display', sans-serif;
+  color: var(--text-dark);
+}
+
+.bottom-bar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--hover-dark);
+}
+
+html.light-mode .bottom-bar a {
+  border: 1px solid var(--text-light);
+  color: var(--text-light);
+}
+
+html.light-mode .bottom-bar a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--hover-light);
+}
+
+.top-bar a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  border: 1px solid var(--text-dark);
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+  font-family: 'Red Hat Display', sans-serif;
+  color: var(--text-dark);
+}
+
+.top-bar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--hover-dark);
+}
+
+html.light-mode .top-bar a {
+  border: 1px solid var(--text-light);
+  color: var(--text-light);
+}
+
+html.light-mode .top-bar a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--hover-light);
+}
+.centered-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+blockquote {
+  font-style: normal;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--border-dark);
+  border-radius: 6px;
+  color: var(--text-dark);
+}
+
+html.light-mode blockquote {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-left: 4px solid var(--border-light);
+  color: var(--text-light);
+}
